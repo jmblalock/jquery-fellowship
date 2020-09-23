@@ -42,13 +42,17 @@ const lands = [
 // ============
 const makeMiddleEarth = () => {
 
-  // HINT: Make a console.log for each of your functions to make sure that, when you click, the correct function is being called!
+  //  HINT: Make a console.log for each of your functions to make sure that, 
+  //  when you click, the correct function is being called!
 
   console.log("Trying to make middle earth.");
 
   // 1. create a section tag with an id of middle-earth
+  const $newSection = $('<section />', '#middle-earth');
 
   // 2. append the section to the body of the DOM.
+  const $bodyEl = $('body');
+  $bodyEl.append($newSection);
 
   // 3. use a for loop to iterate over the lands array that does the following:
 
@@ -59,7 +63,11 @@ const makeMiddleEarth = () => {
   //   3c. includes an h1 with the name of the land inside each land article
 
   //   3d. appends each land to the middle-earth section
-
+  
+  for (i = 0; i < lands.length; i++) {
+    const $newArticle = $(`<a<h1 ${lands[i]} />`, `#${lands[i]}`);
+    $newSection.append($newArticle);
+  }
 };
 
 // COMMIT YOUR WORK
