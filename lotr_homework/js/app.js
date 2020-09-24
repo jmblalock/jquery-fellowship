@@ -360,11 +360,18 @@ const weWantsIt = () => {
 // ============
 const thereAndBackAgain = () => {
 
+  console.log('There and back again');
+
   // 1. remove Gollum and the Ring from the DOM
+  const $gollum = $('#gollum').remove();
 
   // 2. remove all the baddies from the DOM
+  const $baddies = $('.baddy').remove();
 
   // 3. Move all the hobbits back to the shire
+  const $hobbits = $('.hobbit').remove();
+  const $theShire = $('#The-Shire');
+  $theShire.append($hobbits);
 
 };
 
