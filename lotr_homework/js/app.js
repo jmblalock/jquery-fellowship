@@ -48,7 +48,8 @@ const makeMiddleEarth = () => {
   console.log("Trying to make middle earth.");
 
   // 1. create a section tag with an id of middle-earth
-  const $newSection = $('<section />', '#middle-earth');
+  const $newSection = $('<section />');
+  $newSection.attr('id', 'middle-earth');
 
   // 2. append the section to the body of the DOM.
   const $bodyEl = $('body');
@@ -65,7 +66,9 @@ const makeMiddleEarth = () => {
   //   3d. appends each land to the middle-earth section
   
   for (i = 0; i < lands.length; i++) {
-    const $newArticle = $(`<a<h1 ${lands[i]} />`, `#${lands[i]}`);
+    const $newArticle = $(`<a />`);
+    $newArticle.attr('id', `${lands[i]}`);
+    $newArticle.html(`<h1 ${lands[i]} />`);
     $newSection.append($newArticle);
   }
 };
@@ -81,17 +84,19 @@ const makeHobbits = () => {
   console.log('Make hobbits');
 
   // 1. display an unordered list of the hobbits in the shire.
-  const $newUl = $('ul');
+
+  // 2. give each hobbit a class of "hobbit"
+
+  const $newUl = $('<ul />');
   const $articleEl = $('#The-Shire');
   $articleEl.append($newUl);
 
   for (i = 0; i < hobbits.length; i++) {
-    const $newLi = $(`<li ${hobbits[i]} />`, `.hobbit`);
-    console.log(hobbits[i]);
-    $articleEl.append($newLi);
+    const $newLi = $(`<li ${hobbits[i]} />`);
+    $newLi.addClass('hobbit');
+    $newUl.append($newLi);
   }
-  // 2. give each hobbit a class of "hobbit"
-
+  
   // hint: create a 'ul' outside the loop upon which to append the 'li's
 
   // hint: get 'The-Shire' by using its id
@@ -106,9 +111,16 @@ const makeHobbits = () => {
 // ============
 const keepItSecretKeepItSafe = () => {
 
+  console.log('Keep it Secret. Keep it Safe.');
+
   // 1. create an empty div with an id of 'the-ring'
+  const $newDiv = $('<div />');
+  $newDiv.attr('id', 'the-ring');
 
   // 2. add the ring as a child of Frodo
+  const $hobbitLi = $('.hobbit');
+  const $frodo = $hobbitLi.eq(0);
+  $frodo.append($newDiv);
 
   // hint: Frodo does not have an id, but there is a command to retrieve all elements with a certain class. This should give you an array for you to access . . .
 
