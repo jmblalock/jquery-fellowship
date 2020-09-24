@@ -191,7 +191,12 @@ const makeBuddies = () => {
 // ============
 const leaveTheShire = () => {
 
+  console.log("Leave The Shire.")
+
   // 1. grab the hobbits (the ul in which they reside) and move them to Rivendell
+  const $removedHobbits = $('#The-Shire').find('ul').remove()
+  let $rivendell = $('#Rivendell');
+  $rivendell.append($removedHobbits);
 
   // hint: the hobbits ul is a childNode of The-Shire-- there is way to get a list of childNodes
 
