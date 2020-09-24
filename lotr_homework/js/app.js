@@ -308,9 +308,20 @@ const hornOfGondor = () => {
 // ============
 const itsDangerousToGoAlone = () => {
 
+  console.log("It's dangerous to go alone");
+
   // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside a ul in Mordor)
+  const $hobbits = $('.hobbit');
+  const $frodo = $hobbits.eq(0).remove();
+  const $sam = $hobbits.eq(1).remove();
+  const $mordor = $('#Mordor');
+  $mordor.append($frodo);
+  $mordor.append($sam);
 
   // 2. add a div with an id of 'mount-doom' to Mordor
+  const $mordorDiv = $('<div />');
+  $mordorDiv.attr('id', 'mount-doom');
+  $mordor.append($mordorDiv);
 
 };
 
