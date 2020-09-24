@@ -194,7 +194,7 @@ const leaveTheShire = () => {
   console.log("Leave The Shire.")
 
   // 1. grab the hobbits (the ul in which they reside) and move them to Rivendell
-  const $removedHobbits = $('#The-Shire').find('ul').remove()
+  const $removedHobbits = $('#The-Shire').find('ul').remove();
   let $rivendell = $('#Rivendell');
   $rivendell.append($removedHobbits);
 
@@ -230,13 +230,25 @@ const beautifulStranger = () => {
 // ============
 const forgeTheFellowShip = () => {
 
+  console.log("Forge the fellowship.");
+
   // 1. create a new div with an id 'the-fellowship'
+  const $fellowshipDiv = $('<div />');
+  $fellowshipDiv.attr('id', 'the-fellowship');
 
   // 2. add an h1 with the text 'The Fellowship' to this new div
+  const $fellowshiph1El = ('<h1 The Fellowship />');
+  $fellowshipDiv.append($fellowshiph1El);
 
   // 3. append the fellowship to middle-earth
+  const $middleEarth = $('#middle-earth');
+  $middleEarth.append($fellowshipDiv);
 
   // 4. add the unordered lists of hobbits and buddies to 'the-fellowship'
+  const $removedHobbits = $('#Rivendell').find('ul').remove();
+  const $removedBuddies = $('#middle-earth').find('aside').find('ul').remove();
+  $fellowshipDiv.append($removedHobbits);
+  $fellowshipDiv.append($removedBuddies);
 
 };
 
