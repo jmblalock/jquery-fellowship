@@ -81,7 +81,7 @@ const makeMiddleEarth = () => {
 // ============
 const makeHobbits = () => {
 
-  console.log('Make hobbits');
+  console.log("Make hobbits");
 
   // 1. display an unordered list of the hobbits in the shire.
 
@@ -136,7 +136,7 @@ const keepItSecretKeepItSafe = () => {
 // ============
 const makeBaddies = () => {
 
-  console.log("Make baddies")
+  console.log("Make baddies");
 
   // 1. display an unordered list of baddies in Mordor
 
@@ -163,12 +163,24 @@ const makeBaddies = () => {
 // ============
 const makeBuddies = () => {
 
+  console.log("Make buddies")
+
   // 1. create an aside tag and append it to middle-earth below mordor
+  const $middleEarth = $('#middle-earth');
+  const $buddyAside = $('<aside />');
+  $middleEarth.append($buddyAside);
 
   // 2. display an unordered list of buddies in the aside
 
   // 3. give each of the buddies a class of "buddy"
+  const $buddyUl = $('<ul />');
+  $buddyAside.append($buddyUl);
 
+  for (i = 0; i < buddies.length; i++) {
+    const $buddyLi = $(`<li ${buddies[i]} />`);
+    $buddyLi.addClass('buddy');
+    $buddyUl.append($buddyLi);
+  }
 };
 
 // COMMIT YOUR WORK
